@@ -1,3 +1,3 @@
-## This project was bootstrapped with [Create React App]
+## This project is bootstrapped with [Create React App]
 
 
