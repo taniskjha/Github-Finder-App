@@ -9,7 +9,8 @@ import NavBar from "./component/NavBar";
 // importing useritem
 import UserItem from "./component/UserItem";
 
-
+// importing formComponent
+import Form from "./component/Form"
 
 class App extends React.Component {
 
@@ -19,6 +20,7 @@ class App extends React.Component {
             <div className="App">
                 <NavBar title="Github" icon="fab fa-github" />
                 <UserItem />
+
             </div>
         )
     }
