@@ -9,7 +9,7 @@ import './App.css'
 import NavBar from "./component/NavBar";
 
 // importing useritem
-import UserItem from "./component/UserItem";
+// import UserItem from "./component/UserItem";
 
 // import users
 import User from "./component/User"
@@ -30,16 +30,24 @@ class App extends React.Component {
         this.setState({ users: res.data, loading: false })
     }
 
-    searchUsers = (text) => {
-        console.log(text)
+    searchUsers = async (text) => {
+        this.setState({ loading: true });
+        const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=fb30c0da6ae5a62bdd53&client_secret=7ec01d53c703ffb557f8ad984e2e65a4c16d76e0`)
+        console.log(res.data)
+        this.setState({ users: res.data.items, loading: false })
     }
+
+    clearUsers = () => {
+        this.setState({ users: [] })
+    }
+
     render() {
         return (
             <div className="App">
                 <NavBar title="Github" icon="fab fa-github" />
 
                 <div className="container" >
-                    <Search searchUsers={this.searchUsers} />
+                    <Search searchUsers={this.searchUsers} clearUsers={this.clearUsers} />
                     <User users={this.state.users} loading={this.state.spinner} />
                 </div>
 

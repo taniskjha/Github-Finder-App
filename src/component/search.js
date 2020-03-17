@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 class Search extends Component {
     state = {
         text: ''
@@ -17,17 +18,26 @@ class Search extends Component {
         this.setState({ text: '' })
     }
 
+    // static propTypes = {
+    //     searchUsers: PropTypes.func.isRequired()
+    // }
+
     render() {
         return (
             <div>
-                <form className="form" onSubmit={this.submit}>
-                    <input type="text" name="text" placeholder="Search Users..."
+                <form className="form" onSubmit={this.onSubmit}>
+                    <input
+                        type="text"
+                        name="text"
+                        placeholder="Search Users..."
                         value={this.state.text}
                         onChange={this.onChange} />
-                    <input type="submit" value="search" className="btn btn-dark btn-block"
+                    <input type="submit"
+                        value="search"
+                        className="btn btn-dark btn-block"
                     />
                 </form>
-
+                <button onClick={this.props.clearUsers} className="btn btn-light btn-block" >Clear</button>
             </div>
         )
     }

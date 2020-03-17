@@ -1,16 +1,16 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import UserItem from './UserItem';
 import PropTypes from 'prop-types'
 
-const Users = (props) => {
+// const Users = (props) => {
 
-    return (
-        <div style={userStyles}>
-            {props.users.map(a => <UserItem key={a.id} a={a} />)}
-        </div>
+//     return (
+//         <div style={userStyles}>
+//             {props.users.map(a => <UserItem key={a.id} a={a} />)}
+//         </div>
 
-    )
-}
+//     )
+// }
 
 class User extends Component {
     render() {
